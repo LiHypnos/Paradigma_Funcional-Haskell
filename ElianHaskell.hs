@@ -65,3 +65,13 @@ ePrimo n
     isqrt = floor . sqrt . fromIntegral
     eDivisivelPorAlgo :: Integral a => a -> a -> Bool -- Função auxiliar para verificar se um número é divisível por algum outro número
     eDivisivelPorAlgo x y = x `mod` y == 0
+
+--------------------------------------------------------------------------------- Quadrado Perfeito sem Square
+ehQuadradoPerfeito :: Integer -> Bool
+ehQuadradoPerfeito n = n == somaDosImpares 1 0
+  where
+    somaDosImpares :: Integer -> Integer -> Integer
+    somaDosImpares i acumulador
+      | acumulador == n = acumulador
+      | acumulador > n  = 0
+      | otherwise       = somaDosImpares (i + 2) (acumulador + i)
